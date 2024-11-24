@@ -1,134 +1,95 @@
-/* General Layout */
+/* FaceBuilder Container */
 .face-builder-container {
-    display: flex;
-    height: 100vh;
-    background-color: #f0f0f0;
-  }
-  
-  /* Sidebar */
-  .sidebar {
-    width: 15%;
-    background-color: #003366;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px 0;
-  }
-  
-  .sidebar-item {
-    width: 100%;
-    text-align: center;
-    padding: 15px 0;
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 5px;
-    transition: background-color 0.3s ease;
-  }
-  
-  .sidebar-item.active,
-  .sidebar-item:hover {
-    background-color: #00509e;
-  }
-  
-  .sidebar-icon {
-    width: 40px;
-    height: 40px;
-  }
-  
-  .sidebar span {
-    font-size: 14px;
-    font-weight: bold;
-    text-transform: capitalize;
-  }
-  
-  /* Sketch Area */
-  .sketch-area {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: white;
-    border: 1px solid #ccc;
-    margin: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  
-  .sketch-area h2 {
-    margin-bottom: 20px;
-  }
-  
-  .sketch-canvas {
-    width: 80%;
-    height: 80%;
-    background-color: #eee;
-    border: 2px dashed #ccc;
-    border-radius: 10px;
-  }
-  
-  /* Feature Box */
-  .feature-box {
-    width: 25%;
-    background-color: #003366;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    border-radius: 10px 0 0 10px;
-  }
-  
-  .feature-box-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-  }
-  
-  .feature-box-header h3 {
-    font-size: 16px;
-    text-transform: uppercase;
-  }
-  
-  .delete-button {
-    background-color: #ff4d4d;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 14px;
-  }
-  
-  .feature-options {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-  }
-  
-  .feature-item img {
-    width: 100%;
-    height: auto;
-    border-radius: 5px;
-    border: 2px solid transparent;
-    cursor: pointer;
-    transition: transform 0.3s, border-color 0.3s;
-  }
-  
-  .feature-item img:hover {
-    transform: scale(1.1);
-    border-color: #00509e;
-  }
-  /* Selected feature in sketch area */
-.selected-feature {
-    width: 100px; /* Adjust based on your design */
-    height: auto;
-    position: absolute;
-    top: 50%; /* You can fine-tune the positioning */
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-  
+  display: flex;
+  height: 100vh;
+}
+
+/* Left Sidebar */
+.sidebar {
+  width: 15%;
+  background-color: #f0f0f0;
+  padding: 10px;
+  overflow-y: auto;
+}
+
+.sidebar-item {
+  margin-bottom: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  border: 1px solid transparent;
+}
+
+.sidebar-item.active {
+  border: 1px solid #007bff;
+  background-color: #e7f1ff;
+}
+
+.sidebar-icon {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+
+/* Sketch Area */
+.sketch-area {
+  flex: 1;
+  background-color: #fff;
+  position: relative;
+  padding: 20px;
+}
+
+.sketch-canvas {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border: 2px dashed #ccc;
+  background-color: #f7f7f7;
+  overflow: hidden;
+}
+
+/* Resizable and Draggable Feature */
+.rnd-wrapper {
+  position: absolute;
+  z-index: 1;
+  cursor: move; /* Allow dragging */
+  border: none; /* Remove borders around the image */
+  overflow: hidden; /* Hide anything outside the image bounds */
+}
+
+.draggable-feature {
+  cursor: move; /* Add move cursor to show drag ability */
+}
+
+/* Right Feature Box */
+.feature-box {
+  width: 25%;
+  background-color: #f9f9f9;
+  padding: 10px;
+  overflow-y: auto;
+}
+
+.feature-box-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.feature-options {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.feature-item img {
+  width: 100%;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: transform 0.2s;
+}
+
+.feature-item img:hover {
+  transform: scale(1.1);
+}
